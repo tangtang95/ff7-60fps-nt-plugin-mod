@@ -13,6 +13,7 @@
    - 1.01: 100% match files with "60 FPS Gameplay" mod (Fix crash in temple of ancients boss (uzda))
            Add "Full 30 FPS" compatibility option with "60 FPS Gameplay" mod
   </ReleaseNotes>
+  <Link>https://github.com/tangtang95/ff7-60fps-nt-plugin-mod</Link>
   <ReleaseDate>2022-05-02</ReleaseDate>
 
   <ModFolder Folder="BattleAnimation">

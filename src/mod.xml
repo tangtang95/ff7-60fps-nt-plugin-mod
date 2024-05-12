@@ -4,7 +4,7 @@
   <Name>60/30 FPS Animations for New Threat 2.0</Name>
   <Category>Animations</Category>
   <Author>Vertex2995, Uprisen, Sega Chief</Author>
-  <Version>1.01</Version>
+  <Version>1.02</Version>
   <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
   <ReleaseNotes>REQUIRES "New Threat 2.0" and "60 FPS Gameplay" mods
   
@@ -12,6 +12,7 @@
    - 1.00: First release
    - 1.01: 100% match files with "60 FPS Gameplay" mod (Fix crash in temple of ancients boss (uzda))
            Add "Full 30 FPS" compatibility option with "60 FPS Gameplay" mod
+   - 1.02: Add link url to github repo
   </ReleaseNotes>
   <Link>https://github.com/tangtang95/ff7-60fps-nt-plugin-mod</Link>
   <ReleaseDate>2022-05-02</ReleaseDate>

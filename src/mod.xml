@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>c8234df3-ff27-4df4-8cb2-70e7bb021d78</ID>
+  <Name>60/30 FPS Animations for New Threat 2.0</Name>
+  <Category>Animations</Category>
+  <Author>Vertex2995, Uprisen, Sega Chief</Author>
+  <Version>1.01</Version>
+  <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
+  <ReleaseNotes>REQUIRES "New Threat 2.0" and "60 FPS Gameplay" mods
+  
+  Changelog:
+   - 1.00: First release
+   - 1.01: 100% match files with "60 FPS Gameplay" mod (Fix crash in temple of ancients boss (uzda))
+           Add "Full 30 FPS" compatibility option with "60 FPS Gameplay" mod
+  </ReleaseNotes>
+  <ReleaseDate>2022-05-02</ReleaseDate>
+
+  <ModFolder Folder="BattleAnimation">
+    <ActiveWhen>
+      <Or>
+        <Option>Mode = 0</Option>
+        <Option>Mode = 1</Option>
+      </Or>
+    </ActiveWhen>
+  </ModFolder>
+  <ModFolder Folder="FieldAnimation">
+    <ActiveWhen>
+      <Option>Mode = 1</Option>
+    </ActiveWhen>
+  </ModFolder>
+
+  <ConfigOption>
+    <Type>List</Type>
+    <Default>1</Default>
+    <ID>Mode</ID>
+    <Name>New Threat 2.0 FPS Mode</Name>
+    <Description>60 and 30 FPS Animations for New Threat 2.0</Description>
+    <Option Value="0" Name="30 FPS Mode"/>
+    <Option Value="1" Name="60 FPS Mode"/>
+  </ConfigOption>
+  
+  <Compatibility>
+    <Require ModID="c0d1e191-a251-465d-8a3c-a3be5366d849">60 FPS Gameplay</Require>
+    <Require ModID="efc4bc61-7f80-4635-b583-f52c5c9d239f">New Threat 2.0</Require>
+
+    <!-- For 30 FPS Mode -->
+    <Setting>
+      <MyID>Mode</MyID>
+      <MyValue>0</MyValue>
+      <ModID>c0d1e191-a251-465d-8a3c-a3be5366d849</ModID>
+      <TheirID>FPSMode</TheirID>
+      <Require>2</Require>
+    </Setting>
+
+    <Setting>
+      <MyID>Mode</MyID>
+      <MyValue>0</MyValue>
+      <ModID>c0d1e191-a251-465d-8a3c-a3be5366d849</ModID>
+      <TheirID>FlevelFix</TheirID>
+      <Require>0</Require>
+    </Setting>
+
+    <Setting>
+      <MyID>Mode</MyID>
+      <MyValue>0</MyValue>
+      <ModID>efc4bc61-7f80-4635-b583-f52c5c9d239f</ModID>
+      <TheirID>gameplay</TheirID>
+      <Require>1</Require>
+    </Setting>
+
+    <!-- For 60 FPS Mode -->
+    <Setting>
+      <MyID>Mode</MyID>
+      <MyValue>1</MyValue>
+      <ModID>c0d1e191-a251-465d-8a3c-a3be5366d849</ModID>
+      <TheirID>FPSMode</TheirID>
+      <Require>3</Require>
+    </Setting>
+
+    <Setting>
+      <MyID>Mode</MyID>
+      <MyValue>1</MyValue>
+      <ModID>c0d1e191-a251-465d-8a3c-a3be5366d849</ModID>
+      <TheirID>FlevelFix</TheirID>
+      <Require>0</Require>
+    </Setting>
+
+    <Setting>
+      <MyID>Mode</MyID>
+      <MyValue>1</MyValue>
+      <ModID>efc4bc61-7f80-4635-b583-f52c5c9d239f</ModID>
+      <TheirID>gameplay</TheirID>
+      <Require>1</Require>
+    </Setting>
+  </Compatibility>
+
+  <OrderConstraints>
+    <Before>c0d1e191-a251-465d-8a3c-a3be5366d849</Before>
+  </OrderConstraints> 
+
+</ModInfo>

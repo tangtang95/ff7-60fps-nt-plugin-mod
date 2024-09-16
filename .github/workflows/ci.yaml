@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APP_NAME }}-${{ matrix.name }}
-          path: ${{ env.APP_NAME }}-${{ matrix.name }}.iro
+          path: ${{ env.APP_NAME }}.iro
           retention-days: 1
 
   release:
@@ -49,13 +49,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Download artifacts
         uses: actions/download-artifact@v4
-        with:
-          name: ${{ env.APP_NAME }}
       - name: Create release folder
         run: |
           mkdir release-files
-          mv ./${{ env.APP_NAME }}-original.iro ./release-files/${{env.APP_NAME }}.iro
-          mv ./${{ env.APP_NAME }}-spanish.iro ./release-files/${{env.APP_NAME }}\(ESP\).iro
+          mv ./*original*/${{ env.APP_NAME }}.iro ./release-files/${{env.APP_NAME }}.iro
+          mv ./*spanish*/${{ env.APP_NAME }}.iro ./release-files/${{env.APP_NAME }}\(ESP\).iro
           ls -R
       - name: Create Release
         env:

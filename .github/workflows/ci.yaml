@@ -30,7 +30,7 @@ jobs:
         if: ${{ matrix.name != 'original' }}
         run: |
           sed -i s/${{ env.MOD_ORIGINAL_ID }}/${{ matrix.mod-id }}/ ./src/mod.xml
-          sed -i s/<\/Name>/\(ESP\)<\/Name>/ ./src/mod.xml
+          sed -i s/FPS Animations for New Threat 2.0/FPS Animations for New Threat 2.0 \(ESP\)/ ./src/mod.xml
           sed -i s/${{ env.NT_ORIGINAL_ID }}/${{ matrix.nt-id }}/g ./src/mod.xml
           cat ./src/mod.xml
       - name: Build iro

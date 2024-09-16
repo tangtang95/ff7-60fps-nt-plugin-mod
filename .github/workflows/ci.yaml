@@ -5,11 +5,19 @@ on: [push]
 
 env:
   APP_NAME: ff7-60fps-nt-plugin-mod
+  NT_ORIGINAL_ID: efc4bc61-7f80-4635-b583-f52c5c9d239f
 
 jobs:
   build:
     name: Build
     runs-on: windows-latest
+    strategy:
+      matrix:
+        include:
+          - name: original
+            nt-id: efc4bc61-7f80-4635-b583-f52c5c9d239f
+          - name: spanish
+            nt-id: efc4bc61-7f81-4635-b583-f52c5c9d239f
     steps:
       - uses: actions/checkout@v4
       - name: Install iroga from crates.io
@@ -17,13 +25,17 @@ jobs:
         with:
           crate: iroga
           version: 0.1.2
+      - name: Replace New Threat Id
+        run: |
+          sed -i s/${{ env.NT_ORIGINAL_ID }}/${{ matrix.nt-id }}/g ./src/mod.xml
+          cat ./src/mod.xml
       - name: Build iro
         run: iroga pack ./src --output ${{ env.APP_NAME }}.iro
       - name: Upload iro
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APP_NAME }}
-          path: ${{ env.APP_NAME }}.iro
+          name: ${{ env.APP_NAME }}-${{ matrix.name }}
+          path: ${{ env.APP_NAME }}-${{ matrix.name }}.iro
           retention-days: 1
 
   release:
@@ -42,7 +54,8 @@ jobs:
       - name: Create release folder
         run: |
           mkdir release-files
-          mv ./${{ env.APP_NAME }}.iro ./release-files/${{env.APP_NAME }}.iro
+          mv ./${{ env.APP_NAME }}-original.iro ./release-files/${{env.APP_NAME }}.iro
+          mv ./${{ env.APP_NAME }}-spanish.iro ./release-files/${{env.APP_NAME }}\(ESP\).iro
           ls -R
       - name: Create Release
         env:

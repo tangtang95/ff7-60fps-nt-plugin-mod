@@ -5,6 +5,7 @@ on: [push]
 
 env:
   APP_NAME: ff7-60fps-nt-plugin-mod
+  MOD_ORIGINAL_ID: c8234df3-ff27-4df4-8cb2-70e7bb021d78
   NT_ORIGINAL_ID: efc4bc61-7f80-4635-b583-f52c5c9d239f
 
 jobs:
@@ -13,10 +14,10 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
+        name: [original, spanish]
         include:
-          - name: original
-            nt-id: efc4bc61-7f80-4635-b583-f52c5c9d239f
           - name: spanish
+            mod-id: c8234df3-ff27-4df4-8cb2-70e7bb021d80
             nt-id: efc4bc61-7f81-4635-b583-f52c5c9d239f
     steps:
       - uses: actions/checkout@v4
@@ -24,9 +25,12 @@ jobs:
         uses: baptiste0928/cargo-install@v3
         with:
           crate: iroga
-          version: 0.1.2
+          version: 0.2.2
       - name: Replace New Threat Id
+        if: ${{ matrix.name != 'original' }}
         run: |
+          sed -i s/${{ env.MOD_ORIGINAL_ID }}/${{ matrix.mod-id }}/ ./src/mod.xml
+          sed -i s/<\/Name>/\(ESP\)<\/Name>/ ./src/mod.xml
           sed -i s/${{ env.NT_ORIGINAL_ID }}/${{ matrix.nt-id }}/g ./src/mod.xml
           cat ./src/mod.xml
       - name: Build iro

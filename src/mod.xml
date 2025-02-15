@@ -4,8 +4,8 @@
   <Name>60/30 FPS Animations for New Threat 2.0</Name>
   <Category>Animations</Category>
   <Author>Vertex2995, Uprisen, Sega Chief</Author>
-  <Version>1.03</Version>
-  <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
+  <Version>1.04</Version>
+  <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 (works also for New Threat 2.0 Combat Only) mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
   <ReleaseNotes>REQUIRES "New Threat 2.0" and "60 FPS Gameplay" mods
   
   Changelog:
@@ -14,6 +14,7 @@
            Add "Full 30 FPS" compatibility option with "60 FPS Gameplay" mod
    - 1.02: Add link url to github repo
    - 1.03: Add another IRO for New Threat 2.0 (ESP)
+   - 1.04: Remove hard requirement of "New Threat 2.0" since this mod can be used also for "New Threat 2.0 Combat Only"
   </ReleaseNotes>
   <Link>https://github.com/tangtang95/ff7-60fps-nt-plugin-mod</Link>
   <ReleaseDate>2022-05-02</ReleaseDate>
@@ -44,7 +45,6 @@
   
   <Compatibility>
     <Require ModID="c0d1e191-a251-465d-8a3c-a3be5366d849">60 FPS Gameplay</Require>
-    <Require ModID="efc4bc61-7f80-4635-b583-f52c5c9d239f">New Threat 2.0</Require>
 
     <!-- For 30 FPS Mode -->
     <Setting>
@@ -63,10 +63,26 @@
       <Require>0</Require>
     </Setting>
 
-    <Setting>
+    <Setting> <!-- For New Threat 2.0 -->
       <MyID>Mode</MyID>
       <MyValue>0</MyValue>
       <ModID>efc4bc61-7f80-4635-b583-f52c5c9d239f</ModID>
+      <TheirID>gameplay</TheirID>
+      <Require>1</Require>
+    </Setting>
+
+    <Setting> <!-- For New Threat 2.0 Combat Only -->
+      <MyID>Mode</MyID>
+      <MyValue>0</MyValue>
+      <ModID>e6c78e87-24b6-452c-9477-880ba6bbc7bb</ModID>
+      <TheirID>gameplay</TheirID>
+      <Require>1</Require>
+    </Setting>
+
+    <Setting> <!-- For New Threat 2.0 (ESP) -->
+      <MyID>Mode</MyID>
+      <MyValue>0</MyValue>
+      <ModID>efc4bc61-7f81-4635-b583-f52c5c9d239f</ModID>
       <TheirID>gameplay</TheirID>
       <Require>1</Require>
     </Setting>
@@ -88,10 +104,26 @@
       <Require>0</Require>
     </Setting>
 
-    <Setting>
+    <Setting> <!-- For New Threat 2.0 -->
       <MyID>Mode</MyID>
       <MyValue>1</MyValue>
       <ModID>efc4bc61-7f80-4635-b583-f52c5c9d239f</ModID>
+      <TheirID>gameplay</TheirID>
+      <Require>1</Require>
+    </Setting>
+
+    <Setting> <!-- For New Threat 2.0 Combat Only -->
+      <MyID>Mode</MyID>
+      <MyValue>1</MyValue>
+      <ModID>e6c78e87-24b6-452c-9477-880ba6bbc7bb</ModID>
+      <TheirID>gameplay</TheirID>
+      <Require>1</Require>
+    </Setting>
+
+    <Setting> <!-- For New Threat 2.0 (ESP) -->
+      <MyID>Mode</MyID>
+      <MyValue>1</MyValue>
+      <ModID>efc4bc61-7f81-4635-b583-f52c5c9d239f</ModID>
       <TheirID>gameplay</TheirID>
       <Require>1</Require>
     </Setting>

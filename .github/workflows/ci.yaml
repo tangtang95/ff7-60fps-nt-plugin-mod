@@ -5,40 +5,24 @@ on: [push]
 
 env:
   APP_NAME: ff7-60fps-nt-plugin-mod
-  MOD_ORIGINAL_ID: c8234df3-ff27-4df4-8cb2-70e7bb021d78
-  NT_ORIGINAL_ID: efc4bc61-7f80-4635-b583-f52c5c9d239f
 
 jobs:
   build:
     name: Build
     runs-on: windows-latest
-    strategy:
-      matrix:
-        name: [original, spanish]
-        include:
-          - name: spanish
-            mod-id: c8234df3-ff27-4df4-8cb2-70e7bb021d80
-            nt-id: efc4bc61-7f81-4635-b583-f52c5c9d239f
     steps:
       - uses: actions/checkout@v4
       - name: Install iroga from crates.io
         uses: baptiste0928/cargo-install@v3
         with:
           crate: iroga
-          version: 0.2.2
-      - name: Replace New Threat Id
-        if: ${{ matrix.name != 'original' }}
-        run: |
-          sed -i s/${{ env.MOD_ORIGINAL_ID }}/${{ matrix.mod-id }}/ ./src/mod.xml
-          sed -i 's/FPS Animations for New Threat 2.0/FPS Animations for New Threat 2.0 \(ESP\)/' ./src/mod.xml
-          sed -i s/${{ env.NT_ORIGINAL_ID }}/${{ matrix.nt-id }}/g ./src/mod.xml
-          cat ./src/mod.xml
+          version: 0.1.2
       - name: Build iro
         run: iroga pack ./src --output ${{ env.APP_NAME }}.iro
       - name: Upload iro
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APP_NAME }}-${{ matrix.name }}
+          name: ${{ env.APP_NAME }}
           path: ${{ env.APP_NAME }}.iro
           retention-days: 1
 
@@ -53,11 +37,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Download artifacts
         uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.APP_NAME }}
       - name: Create release folder
         run: |
           mkdir release-files
-          mv ./*original*/${{ env.APP_NAME }}.iro ./release-files/${{env.APP_NAME }}.iro
-          mv ./*spanish*/${{ env.APP_NAME }}.iro ./release-files/${{env.APP_NAME }}\(ESP\).iro
+          mv ./${{ env.APP_NAME }}.iro ./release-files/${{env.APP_NAME }}.iro
           ls -R
       - name: Create Release
         env:

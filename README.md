@@ -15,7 +15,3 @@ This mod only provides animation files and in order to work, it is required to h
 ## How to install
 
 Install it via [7th heaven](https://github.com/tsunamods-codes/7th-Heaven) by searching `60/30 FPS Animations for New Threat 2.0`
-
-## Other New Threat Version supported
-
-- **New Threat 2.0 (ESP)**: supported by providing another IRO mod in the release section

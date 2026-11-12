@@ -5,7 +5,7 @@
   <Category>Animations</Category>
   <Author>Vertex2995, Uprisen, Sega Chief</Author>
   <Version>1.05</Version>
-  <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 (works also for New Threat 2.0 Combat Only) mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
+  <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
   <ReleaseNotes>REQUIRES "New Threat 2.0" and "60 FPS Gameplay" mods
   
   Changelog:
@@ -19,7 +19,7 @@
   </ReleaseNotes>
   <Link>https://github.com/tangtang95/ff7-60fps-nt-plugin-mod</Link>
   <ReleaseDate>2022-05-02</ReleaseDate>
-  <GameLanguage>ANY</GameLanguage>
+  <GameLanguage>EN</GameLanguage>
 
   <ModFolder Folder="BattleAnimation">
     <ActiveWhen>
@@ -73,14 +73,6 @@
       <Require>1</Require>
     </Setting>
 
-    <Setting> <!-- For New Threat 2.0 Combat Only -->
-      <MyID>Mode</MyID>
-      <MyValue>0</MyValue>
-      <ModID>e6c78e87-24b6-452c-9477-880ba6bbc7bb</ModID>
-      <TheirID>gameplay</TheirID>
-      <Require>1</Require>
-    </Setting>
-
     <Setting> <!-- For New Threat 2.0 (ESP) -->
       <MyID>Mode</MyID>
       <MyValue>0</MyValue>
@@ -114,14 +106,6 @@
       <Require>1</Require>
     </Setting>
 
-    <Setting> <!-- For New Threat 2.0 Combat Only -->
-      <MyID>Mode</MyID>
-      <MyValue>1</MyValue>
-      <ModID>e6c78e87-24b6-452c-9477-880ba6bbc7bb</ModID>
-      <TheirID>gameplay</TheirID>
-      <Require>1</Require>
-    </Setting>
-
     <Setting> <!-- For New Threat 2.0 (ESP) -->
       <MyID>Mode</MyID>
       <MyValue>1</MyValue>
@@ -133,6 +117,6 @@
 
   <OrderConstraints>
     <Before>c0d1e191-a251-465d-8a3c-a3be5366d849</Before>
-  </OrderConstraints> 
+  </OrderConstraints>
 
 </ModInfo>

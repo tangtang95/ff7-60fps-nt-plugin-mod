@@ -4,7 +4,7 @@
   <Name>60/30 FPS Animations for New Threat 2.0</Name>
   <Category>Animations</Category>
   <Author>Vertex2995, Uprisen, Sega Chief</Author>
-  <Version>1.04</Version>
+  <Version>1.05</Version>
   <Description>Provide BATTLE and FIELD mode compatibility of New Threat 2.0 (works also for New Threat 2.0 Combat Only) mod with 60 FPS Gameplay mod. Both "Full 30 FPS" and "Full 60 FPS" of 60 FPS Gameplay mod are available (Can be changed in the mod config options)</Description>
   <ReleaseNotes>REQUIRES "New Threat 2.0" and "60 FPS Gameplay" mods
   
@@ -15,6 +15,7 @@
    - 1.02: Add link url to github repo
    - 1.03: Add another IRO for New Threat 2.0 (ESP)
    - 1.04: Remove hard requirement of "New Threat 2.0" since this mod can be used also for "New Threat 2.0 Combat Only"
+   - 1.05: Add game language configuration
   </ReleaseNotes>
   <Link>https://github.com/tangtang95/ff7-60fps-nt-plugin-mod</Link>
   <ReleaseDate>2022-05-02</ReleaseDate>
